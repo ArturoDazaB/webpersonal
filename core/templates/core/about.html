@@ -1,93 +1,51 @@
 <!DOCTYPE html>
 <html>
 
-	<!--==============================================================================-->
-	<!--==============================================================================-->
-	<!--EL ELEMENTO "head" CONTIENE INFORMACION ACERCA DE EL DOCUMENTO HTML TAL COMO: -->
-	<!--	TITLE: DEFINE EL TITULO DEL DOCUMENTO ACTVO 
-			STYLE: DEFINE LA INFORMACION DE ESTILOS PARA LOS ELEMENTOS DE UNA DOCUMENTO
-				   HTML
-			LINK: DEFINE LA RELACION ENTRE EL DOCUMENTO ACTIVO Y FUENTES EXTERNAS
-			META: ELEMENTO USADO PARA ESPECIFICAR:
-				-charset: COLECCION DE CARACTERES USADO EN UN LENGUAJE. EX: 
-						  <meta charset="UTF-8">
-				-descripcion de la pagina
-				-palabras claves o keywords (for search engines)
-				-author-->
-	
-	<!--LINKs: https://www.w3.org/TR/html401/struct/global.html#h-7.5.1 
-			   https://www.w3schools.com/html/html_head.asp -->
-	
-	<head>
-		
-		<!--TITULO DEL DOCUMENTO home.html-->
-		<title>Acerca de...</title>
+<!--==============================================================================-->
+<!--==============================================================================-->
+<!--CABECERA-->
+<!--LA CABECERA SE HEREDARA DESDE LA PLANTILLA BASE "core/base.html" MEDIANTE EL USO
+	DE "Template tags" o "tags de etiqueta" LOS CUALES SIRVEN PARA AÑADIR LOGICA DE 
+	PROGRAMACION DENTRO DEL PROPIO HTML.
 
-		<!--ESTILO DE LOS ELEMENTOS HTML-->
-		<!--LINKs: https://www.w3schools.com/html/html_styles.asp -->
-		<style>
-			
-			body {
-				background-color: #d6f7ffcc;
-			}
-	
-			h1{
-				font-family:'Courier New', monospace;
-				color: black;
-				text-align:center;
-			}
+	EN ESTE CASO EL TEMPLATE TAG "extends" SIRVE PARA HEREDAR DESDE OTRO DOCUMENTO
+	HTML EL CONTENIDO QUE ESTE.-->
+    {% extends 'core/base.html' %}
 
-            h2, h3, h4, h5, h6{
-				font-family:'Courier New', monospace;
-				color: black;
-			}
+<!--==============================================================================-->
+<!--==============================================================================-->
+<!--TITULO DE LA PAGINA-->
+<!--EL TITULO INDIVIDUAL DE CADA UNA DE LAS PAGINAS DEBE ENCONTRARSE ANIDADO DENTRO
+    DEL TEMPLATE TAG "block". ESTO PARA QUE TOME EL CONTENIDO HTML DEL DOCUMENTO 
+    DEFINIDO EN EL BLOQUE "extends" E INTERSTE EL "contenido" DENTRO DEL TAG "block"
+    DEFINIDO EN EL DOCUMENTO "core/base.html".-->
+{% block title %} Acerca de {% endblock %}
 
-            p{
-                font-family: 'Courier New', Courier, monospace;
-                text-align:justify;
-            }
+<!--==============================================================================-->
+<!--==============================================================================-->
+<!--CONTENIDO-->
+<!--EL CONTENIDO INDIVIDUAL DE CADA UNA DE LAS PAGINAS DEBE ENCONTRARSE ANIDADO 
+	DENTRO DEL TEMPLATE TAG "block". ESTO PARA QUE TOME EL CONTENIDO HTML DEL 
+	DOCUMENTO DEFINIDO EN EL BLOQUE "extends" E INTERSTE EL "contenido" DENTRO DEL
+	TAG "block" DEFINIDO EN EL DOCUMENTO "core/base.html".-->
+{% block content %}
 
-            li{
-                font-family:'Courier New', Courier, monospace;
-            }
-	
-		</style>
+<h2>Acerca de mi: </h2>
 
-	</head>
+<p>Nacido en la ciudad de San Cristobal Venezuela el 3 de junio de 1996...tempor incididunt
+    ut labore et dolore magna aliqua. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.
+    Massa massa ultricies mi quis hendrerit dolor magna eget. Lectus urna duis convallis convallis
+    tellus id. Parturient montes nascetur ridiculus mus mauris. Quisque id diam vel quam elementum
+    pulvinar etiam non. Tortor consequat id porta nibh venenatis. Amet mauris commodo quis imperdiet
+    massa tincidunt nunc pulvinar. Purus faucibus ornare suspendisse sed nisi. Pellentesque pulvinar
+    pellentesque habitant morbi tristique senectus. Leo duis ut diam quam nulla. Nibh praesent
+    tristique magna sit amet. Id ornare arcu odio ut. Sem fringilla ut morbi tincidunt augue interdum
+    velit. Purus in mollis nunc sed id semper risus in hendrerit. In pellentesque massa placerat
+    duis ultricies lacus sed turpis tincidunt. Pellentesque habitant morbi tristique senectus et
+    netus et malesuada fames. Urna cursus eget nunc scelerisque viverra mauris in. Venenatis a
+    condimentum vitae sapien pellentesque habitant morbi tristique senectus. Malesuada
+    pellentesque elit eget gravida cum.</p>
 
-    <!--==============================================================================-->
-	<!--==============================================================================-->
-	<!--EL ELEMENTO BODY CONTIENE EL CONTENIDO DEL DOCUMENTO ACTIVO-->
-	<body >
-
-		<h1>Bienvenido a mi web personal</h1>
-		<hr />
-        <p>Navegar:</p>
-        
-                <ul>
-                    <li><a href = '/'>Pagina Princial</a></li>
-                    <li><a href = '/about'>Acerca de</a></li>
-                    <li><a href = '/contact'>Contacto</a></li>
-                </ul>
-
-        <hr />
-
-        <h2>Acerca de mi: </h2>
-
-        <p>Nacido en la ciudad de San Cristobal Venezuela el 3 de junio de 1996...tempor incididunt
-        ut labore et dolore magna aliqua. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. 
-        Massa massa ultricies mi quis hendrerit dolor magna eget. Lectus urna duis convallis convallis 
-        tellus id. Parturient montes nascetur ridiculus mus mauris. Quisque id diam vel quam elementum
-        pulvinar etiam non. Tortor consequat id porta nibh venenatis. Amet mauris commodo quis imperdiet
-        massa tincidunt nunc pulvinar. Purus faucibus ornare suspendisse sed nisi. Pellentesque pulvinar
-        pellentesque habitant morbi tristique senectus. Leo duis ut diam quam nulla. Nibh praesent
-        tristique magna sit amet. Id ornare arcu odio ut. Sem fringilla ut morbi tincidunt augue interdum
-        velit. Purus in mollis nunc sed id semper risus in hendrerit. In pellentesque massa placerat
-        duis ultricies lacus sed turpis tincidunt. Pellentesque habitant morbi tristique senectus et
-        netus et malesuada fames. Urna cursus eget nunc scelerisque viverra mauris in. Venenatis a
-        condimentum vitae sapien pellentesque habitant morbi tristique senectus. Malesuada
-        pellentesque elit eget gravida cum.</p>
-        
-	</body>
+{% endblock %}
 
 </html>

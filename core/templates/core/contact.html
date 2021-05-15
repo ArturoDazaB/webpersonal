@@ -1,88 +1,45 @@
 <!DOCTYPE html>
 <html>
 
-	<!--==============================================================================-->
-	<!--==============================================================================-->
-	<!--EL ELEMENTO "head" CONTIENE INFORMACION ACERCA DE EL DOCUMENTO HTML TAL COMO: -->
-	<!--	TITLE: DEFINE EL TITULO DEL DOCUMENTO ACTVO 
-			STYLE: DEFINE LA INFORMACION DE ESTILOS PARA LOS ELEMENTOS DE UNA DOCUMENTO
-				   HTML
-			LINK: DEFINE LA RELACION ENTRE EL DOCUMENTO ACTIVO Y FUENTES EXTERNAS
-			META: ELEMENTO USADO PARA ESPECIFICAR:
-				-charset: COLECCION DE CARACTERES USADO EN UN LENGUAJE. EX: 
-						  <meta charset="UTF-8">
-				-descripcion de la pagina
-				-palabras claves o keywords (for search engines)
-				-author-->
-	
-	<!--LINKs: https://www.w3.org/TR/html401/struct/global.html#h-7.5.1 
-			   https://www.w3schools.com/html/html_head.asp -->
-	
-	<head>
-		
-		<!--TITULO DEL DOCUMENTO home.html-->
-		<title>Contacto</title>
+<!--==============================================================================-->
+<!--==============================================================================-->
+<!--CABECERA-->
+<!--LA CABECERA SE HEREDARA DESDE LA PLANTILLA BASE "core/base.html" MEDIANTE EL USO
+	DE "Template tags" o "tags de etiqueta" LOS CUALES SIRVEN PARA AÑADIR LOGICA DE 
+	PROGRAMACION DENTRO DEL PROPIO HTML.
 
-		<!--ESTILO DE LOS ELEMENTOS HTML-->
-		<!--LINKs: https://www.w3schools.com/html/html_styles.asp -->
-		<style>
-			
-			body {
-				background-color: #d6f7ffcc;
-			}
-	
-			h1{
-				font-family:'Courier New', monospace;
-				color: black;
-				text-align:center;
-			} 
-            
-            
-            h2, h3, h4, h5, h6{
-				font-family:'Courier New', monospace;
-				color: black;
-			}
+	EN ESTE CASO EL TEMPLATE TAG "extends" SIRVE PARA HEREDAR DESDE OTRO DOCUMENTO
+	HTML EL CONTENIDO QUE ESTE.-->
+    {% extends 'core/base.html' %}
 
-            p{
-                font-family: 'Courier New', Courier, monospace;
-                text-align:justify;
-            }
+<!--==============================================================================-->
+<!--==============================================================================-->
+<!--TITULO DE LA PAGINA-->
+<!--EL TITULO INDIVIDUAL DE CADA UNA DE LAS PAGINAS DEBE ENCONTRARSE ANIDADO DENTRO
+    DEL TEMPLATE TAG "block". ESTO PARA QUE TOME EL CONTENIDO HTML DEL DOCUMENTO 
+    DEFINIDO EN EL BLOQUE "extends" E INTERSTE EL "contenido" DENTRO DEL TAG "block"
+    DEFINIDO EN EL DOCUMENTO "core/base.html".-->
+{% block title %} Contacto {% endblock %}
 
-            li{
-                font-family:'Courier New', Courier, monospace;
-            }
-	
-		</style>
+<!--==============================================================================-->
+<!--==============================================================================-->
+<!--CONTENIDO-->
+<!--EL CONTENIDO INDIVIDUAL DE CADA UNA DE LAS PAGINAS DEBE ENCONTRARSE ANIDADO 
+	DENTRO DEL TEMPLATE TAG "block". ESTO PARA QUE TOME EL CONTENIDO HTML DEL 
+	DOCUMENTO DEFINIDO EN EL BLOQUE "extends" E INTERSTE EL "contenido" DENTRO DEL
+	TAG "block" DEFINIDO EN EL DOCUMENTO "core/base.html".-->
+{% block content %}
 
-	</head>
+<h2>Contacto:</h2>
 
-    <!--==============================================================================-->
-	<!--==============================================================================-->
-	<!--EL ELEMENTO BODY CONTIENE EL CONTENIDO DEL DOCUMENTO ACTIVO-->
-	<body >
+<ul>
 
-		<h1>Bienvenido a mi web personal</h1>
-		<hr />
-        <p>Navegar:</p>
-        
-                <ul>
-                    <li><a href = '/'>Pagina Princial</a></li>
-                    <li><a href = '/about'>Acerca de</a></li>
-                    <li><a href = '/contact'>Contacto</a></li>
-                </ul>
+    <li><a href="mailto:carlos.arturo.dazab@gmail.com">Correo electronico</a></li>
+    <li><a href="https://www.facebook.com/CarlosDazaB/" target="_blank">Facebook</a></li>
+    <li><a href="https://github.com/ArturoDazaB" target="_blank">GitHub</a></li>
 
-        <hr />
-        
-        <h2>Contacto:</h2>
-                
-                <ul>
-                
-                    <li><a href="mailto:carlos.arturo.dazab@gmail.com">Correo electronico</a></li>
-                    <li><a href="https://www.facebook.com/CarlosDazaB/" target="_blank">Facebook</a></li>
-                    <li><a href="https://github.com/ArturoDazaB" target="_blank">GitHub</a></li>
+</ul>
 
-                </ul>
-
-    </body>
+{% endblock %}
 
 </html>

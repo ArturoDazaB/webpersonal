@@ -10,7 +10,7 @@
 
 	EN ESTE CASO EL TEMPLATE TAG "extends" SIRVE PARA HEREDAR DESDE OTRO DOCUMENTO
 	HTML EL CONTENIDO QUE ESTE.-->
-    {% extends 'core/base.html' %}
+	{% extends 'core/base.html' %}
 
 <!--==============================================================================-->
 <!--==============================================================================-->
@@ -19,7 +19,7 @@
     DEL TEMPLATE TAG "block". ESTO PARA QUE TOME EL CONTENIDO HTML DEL DOCUMENTO 
     DEFINIDO EN EL BLOQUE "extends" E INTERSTE EL "contenido" DENTRO DEL TAG "block"
     DEFINIDO EN EL DOCUMENTO "core/base.html".-->
-{% block title %} Home {% endblock %}
+{% block title %} Portafolio {% endblock %}
 
 <!--==============================================================================-->
 <!--==============================================================================-->
@@ -30,11 +30,15 @@
 	TAG "block" DEFINIDO EN EL DOCUMENTO "core/base.html".-->
 {% block content %}
 
-<p>Esta es mi pagina web personal, aqui podras conseguir informacion sobre mi y mi trabajo...
-    lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet
-    pariatur voluptates odit, fuga atque ea nobis sit soluta odio. Lorem ipsum dolor sit amet,
-    consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit...</p>
+<h2>Portafolio:</h2>
+
+<p>Algunos de los trabajos que he realizado...
+	lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet
+	pariatur voluptates odit, fuga atque ea nobis sit soluta odio. Lorem ipsum dolor sit amet,
+	consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit...</p>
 
 {% endblock %}
+
+
 
 </html>
