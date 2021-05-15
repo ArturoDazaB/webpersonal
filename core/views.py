@@ -1,5 +1,4 @@
 from django.shortcuts import render, HttpResponse
-
 #===================================================================================
 #===================================================================================
 #DEFINICION DE PAGINA BASE HTML
@@ -38,10 +37,7 @@ html_base = """
 # RECIBE UN PARAMETRO DENOMINADO 'request' Y CONTIENE "Mucha Informacion".
 def Home(request):
 
-    html =  """ <h2>Bienvenido</h2>
-                <p>Esta es la portada</p>"""
-
-    return HttpResponse(html_base+html)
+    return render(request, "core/home.html")
 
 #===================================================================================
 #===================================================================================
@@ -49,10 +45,7 @@ def Home(request):
 
 def about(request):
 
-    html =  """<h2>Acerca de:</h2>
-            <p>Me llamo Arturo y me encanta Django!"""
-
-    return HttpResponse(html_base+html)
+    return render(request, 'core/about.html')
 
 #===================================================================================
 #===================================================================================
@@ -60,15 +53,4 @@ def about(request):
 
 def contact(request):
 
-    html =  """ <h2>Contacto:</h2>
-                <p>Aqui dejo mi email y mis redes sociales</p>
-                
-                <ul>
-                
-                    <li><a href="mailto:carlos.arturo.dazab@gmail.com">Correo electronico</a></li>
-                    <li><a href="https://www.facebook.com/CarlosDazaB/">Facebook</a></li>
-                    <li><a href="https://github.com/ArturoDazaB">GitHub</a></li>
-
-                </ul>"""
-
-    return HttpResponse(html_base+html)
+    return render(request, 'core/contact.html')
