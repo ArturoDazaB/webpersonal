@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
 
-<!--==============================================================================-->
-<!--==============================================================================-->
-<!--CABECERA-->
-<!--LA CABECERA SE HEREDARA DESDE LA PLANTILLA BASE "core/base.html" MEDIANTE EL USO
-	DE "Template tags" o "tags de etiqueta" LOS CUALES SIRVEN PARA AÑADIR LOGICA DE 
-	PROGRAMACION DENTRO DEL PROPIO HTML.
-
-	EN ESTE CASO EL TEMPLATE TAG "extends" SIRVE PARA HEREDAR DESDE OTRO DOCUMENTO
-	HTML EL CONTENIDO QUE ESTE.-->
-    {% extends 'core/base.html' %}
+{% extends 'core/base.html' %}
 
 <!--==============================================================================-->
 <!--==============================================================================-->
 <!--TITULO DE LA PAGINA-->
-<!--EL TITULO INDIVIDUAL DE CADA UNA DE LAS PAGINAS DEBE ENCONTRARSE ANIDADO DENTRO
-    DEL TEMPLATE TAG "block". ESTO PARA QUE TOME EL CONTENIDO HTML DEL DOCUMENTO 
-    DEFINIDO EN EL BLOQUE "extends" E INTERSTE EL "contenido" DENTRO DEL TAG "block"
-    DEFINIDO EN EL DOCUMENTO "core/base.html".-->
 {% block title %} Home {% endblock %}
+
+<!--==============================================================================-->
+<!--==============================================================================-->
+<!--IMAGEN DE FONDO : CABECERA-->
+{% block background %}{% load static%}{% static 'core/img/home-bg.jpg' %}{% endblock%}
+
+<!--==============================================================================-->
+<!--==============================================================================-->
+<!--CABECERA-->
+{% block headers %}
+<h1>Arturo Daza</h1>
+<span class="subheading">Ingeniero Electronico | Programador</span>
+{% endblock %}
 
 <!--==============================================================================-->
 <!--==============================================================================-->
@@ -29,11 +29,6 @@
 	DOCUMENTO DEFINIDO EN EL BLOQUE "extends" E INTERSTE EL "contenido" DENTRO DEL
 	TAG "block" DEFINIDO EN EL DOCUMENTO "core/base.html".-->
 {% block content %}
-
-<p>Esta es mi pagina web personal, aqui podras conseguir informacion sobre mi y mi trabajo...
-    lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet
-    pariatur voluptates odit, fuga atque ea nobis sit soluta odio. Lorem ipsum dolor sit amet,
-    consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit...</p>
 
 {% endblock %}
 

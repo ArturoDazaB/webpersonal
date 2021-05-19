@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
 
-<!--==============================================================================-->
-<!--==============================================================================-->
-<!--CABECERA-->
-<!--LA CABECERA SE HEREDARA DESDE LA PLANTILLA BASE "core/base.html" MEDIANTE EL USO
-	DE "Template tags" o "tags de etiqueta" LOS CUALES SIRVEN PARA AÑADIR LOGICA DE 
-	PROGRAMACION DENTRO DEL PROPIO HTML.
 
-	EN ESTE CASO EL TEMPLATE TAG "extends" SIRVE PARA HEREDAR DESDE OTRO DOCUMENTO
-	HTML EL CONTENIDO QUE ESTE.-->
-    {% extends 'core/base.html' %}
+{% extends 'core/base.html' %}
 
 <!--==============================================================================-->
 <!--==============================================================================-->
 <!--TITULO DE LA PAGINA-->
-<!--EL TITULO INDIVIDUAL DE CADA UNA DE LAS PAGINAS DEBE ENCONTRARSE ANIDADO DENTRO
-    DEL TEMPLATE TAG "block". ESTO PARA QUE TOME EL CONTENIDO HTML DEL DOCUMENTO 
-    DEFINIDO EN EL BLOQUE "extends" E INTERSTE EL "contenido" DENTRO DEL TAG "block"
-    DEFINIDO EN EL DOCUMENTO "core/base.html".-->
 {% block title %} Acerca de {% endblock %}
+
+<!--==============================================================================-->
+<!--==============================================================================-->
+<!--IMAGEN DE FONDO : CABECERA-->
+{% block background %}{% load static%}{% static 'core/img/about-bg.jpg' %}{% endblock%}
+
+<!--==============================================================================-->
+<!--==============================================================================-->
+<!--CABECERA-->
+{% block headers %}
+<h1>Acerca De</h1>
+<span class="subheading">Biografia </span>
+{% endblock %}
 
 <!--==============================================================================-->
 <!--==============================================================================-->
@@ -30,21 +31,80 @@
 	TAG "block" DEFINIDO EN EL DOCUMENTO "core/base.html".-->
 {% block content %}
 
-<h2>Acerca de mi: </h2>
+<div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-4 offset-lg-1">
+          <img class="img-fluid avatar" src="{% load static%}{% static 'core/img/avatar.jpg' %}" alt="">
+        </div>
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <p>
+                <b>Ingeniero Electrónico</b>, egresado de la <b><i>Universidad José Antonio Páez</i></b>, San Diego, Estado
+                Carabobo, en Diciembre de 2020. Nacido en la ciudad de <b>San Cristóbal</b>, Estado Táchira el 3 de junio de 1996.
+            </p>
 
-<p>Nacido en la ciudad de San Cristobal Venezuela el 3 de junio de 1996...tempor incididunt
-    ut labore et dolore magna aliqua. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.
-    Massa massa ultricies mi quis hendrerit dolor magna eget. Lectus urna duis convallis convallis
-    tellus id. Parturient montes nascetur ridiculus mus mauris. Quisque id diam vel quam elementum
-    pulvinar etiam non. Tortor consequat id porta nibh venenatis. Amet mauris commodo quis imperdiet
-    massa tincidunt nunc pulvinar. Purus faucibus ornare suspendisse sed nisi. Pellentesque pulvinar
-    pellentesque habitant morbi tristique senectus. Leo duis ut diam quam nulla. Nibh praesent
-    tristique magna sit amet. Id ornare arcu odio ut. Sem fringilla ut morbi tincidunt augue interdum
-    velit. Purus in mollis nunc sed id semper risus in hendrerit. In pellentesque massa placerat
-    duis ultricies lacus sed turpis tincidunt. Pellentesque habitant morbi tristique senectus et
-    netus et malesuada fames. Urna cursus eget nunc scelerisque viverra mauris in. Venenatis a
-    condimentum vitae sapien pellentesque habitant morbi tristique senectus. Malesuada
-    pellentesque elit eget gravida cum.</p>
+            <p>
+                Actualmente incursionando en proyectos de <b>electrónica digital y programación</b>, orientados a las areas de IoT y IIoT (Internet Of Things / Industrial Internet Of Things).
+            </p>
+
+            <p>
+                Buen trabajador, con alto sentido de pertenencia y responsabilidad y orientado al logro de metas y objetivos,
+                capaz de desarrollarme y desenvolverme efectivamente en mi área de trabajo
+            </p>
+
+        </div>
+
+        <div class="col-lg-8 col-md-10 mx-auto">
+        
+        <hr>
+
+        <h3>Experiencia Academica:</h3>
+
+        <!--==============================================================================-->
+        <!--==============================================================================-->
+        <!--BACHILLER EN CIENCIA-->
+        <p>
+            <div style="font-size: 12px; color:#231f20;">Septiembre 2009 - Julio 2013</div>
+            <div style="font-size: 22px; color: #7ca655;"><b><i>Bachiller en Ciencias</i></b></div>
+            <div style="font-size:18px;"><b>U.E. Colegio Virgen del Valle</b></div>
+            <div style="font-size: 12px; color:#231f20;">Táriba - Edo. Táchira.</div>
+            <div>___________________________________________</div>
+        </p>
+
+        <!--==============================================================================-->
+        <!--==============================================================================-->
+        <!--CURSO DE IDIOMAS-->
+        <p>
+            <div style="font-size: 12px; color:#231f20;">Junio 2012 - Agosto 2013</div>
+            <div style="font-size: 22px; color: #7ca655;"><b><i>Curso de Idiomas</i></b></div>
+            <div style="font-size:18px;"><b>EF International Lenguage Center</b></div>
+            <div style="font-size: 12px; color:#231f20;">Tarrytown – Edo. New York; USA.</div>
+            <div>___________________________________________</div>
+        </p>
+
+<!--==============================================================================-->
+<!--==============================================================================-->
+<!--CURSO PROPEDEUTICO-->
+<p>
+<div style="font-size: 12px; color:#231f20;">Octubre 2013 – Agosto 2016</div>
+<div style="font-size: 22px; color: #7ca655;"><b><i>Curso Propedéutico; Semestre I, II y III de Ingenieria Electrónica</i></b></div>
+<div style="font-size:18px;"><b>Universidad NacionalExperimental del Táchira</b></div>
+<div style="font-size: 12px; color:#231f20;">San Cristobal – Edo. Táchira.</div>
+<div>___________________________________________</div>
+</p>
+
+<!--==============================================================================-->
+<!--==============================================================================-->
+<!--INGENIERIA ELECTRONICA-->
+<p>
+<div style="font-size: 12px; color:#231f20;">Septiembre 2016 – Marzo 2020</div>
+<div style="font-size: 22px; color: #7ca655;"><b><i>Ingeniería Electrónica</i></b></div>
+<div style="font-size:18px;"><b>Universidad José Antonio Paéz</b></div>
+<div style="font-size: 12px; color:#231f20;">San Diego – Edo. Carabobo.</div>
+<div>___________________________________________</div>
+</p>
+        </div>
+      </div>
+    </div>
 
 {% endblock %}
 
