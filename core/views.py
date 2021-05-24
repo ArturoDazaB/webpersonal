@@ -28,10 +28,4 @@ def contact(request):
 
     return render(request, 'core/contact.html')
 
-#===================================================================================
-#===================================================================================
-# FUNCION QUE RETORNA LA DE INFORMACION DE CONTACTO.
 
-def portfolio(request):
-
-    return render(request, 'core/portfolio.html')

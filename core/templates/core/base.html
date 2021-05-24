@@ -30,9 +30,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+            <!--li class="nav-item">
               <a class="nav-link" href='{% url "home" %}'>Portada</a>
-            </li>
+            </li-->
             <li class="nav-item">
               <a class="nav-link" href='{% url "about" %}'>Acerca de</a>
             </li>
@@ -65,6 +65,8 @@
     {% block content %}
     {% endblock%}
 
+    {% if request.path != '/' %}<hr/>{% endif %}
+
     <!-- Pié de página -->
     <footer>
       <div class="container">
@@ -96,7 +98,7 @@
                 </a>
               </li>
             </ul>
-            <p class="copyright text-muted">Copyright &copy; 2018 · Juan Pérez (Ingeniero Industrial) </p>
+            <p class="copyright text-muted">Copyright &copy; 2020 · Carlos Arturo Daza (Ingeniero Electrónico) </p>
           </div>
         </div>
       </div>
