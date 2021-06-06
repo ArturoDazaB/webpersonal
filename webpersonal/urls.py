@@ -18,12 +18,13 @@ from django.contrib import admin
 from django.urls import path
 from core import views as core_views
 from portfolio import views as portfolio_view
+from about import views as about_view
 
 from django.conf import settings
 
 urlpatterns = [
     path('', core_views.home, name='home'),
-    path('about-me/', core_views.about, name='about'),
+    path('about-me/', about_view.about, name='about'),
     path('contact/', core_views.contact, name = 'contact'),
     path('portfolio/', portfolio_view.portfolio, name='portfolio'),
     path('admin/', admin.site.urls),
