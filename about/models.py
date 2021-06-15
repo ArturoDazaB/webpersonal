@@ -36,7 +36,7 @@ class ExperiencieA(models.Model):
         verbose_name = 'Experiencia Academica'
         verbose_name_plural = 'Experiencias Academicas'
         ordering = ['-created']
-
+        
     def __str__(self):
         return self.title
 

@@ -4,7 +4,8 @@ from django.db import models
 class Project (models.Model):
     #DEFINICION DE COLUMNAS DE LA TABLA 'Project'
     title = models.CharField(max_length=250, verbose_name='Título')
-    description = models.TextField(verbose_name='Descripción')
+    short_description = models.CharField(max_length=140, verbose_name='Descripción corta', default="")
+    detail_description = models.TextField(verbose_name='Descripción detallada', default="")
     image = models.ImageField(verbose_name='Imagen', upload_to = 'projects')
     link = models.URLField(null=True, blank=True, verbose_name='URL/Link del proyecto')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de creación')

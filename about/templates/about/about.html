@@ -50,7 +50,7 @@
             <h3>Experiencia Academica:</h3>
             {% for experiencia in eAcademica %}
                 <p>
-                <div style="font-size: 12px; color:#231f20;">{{experiencia.start}} - {{experiencia.end}}</div>
+                <div style="font-size: 12px; color:#231f20;">{{experiencia.start | date:"F, Y"}} - {{experiencia.end | date:"F, Y"}}</div>
                 <div style="font-size: 22px; color: #7ca655;"><b><i>{{experiencia.title}}</i></b></div>
                 <div style="font-size:18px;"><b>{{experiencia.institute}}</b></div>
                 <div style="font-size: 12px; color:#231f20; text-align:justify;">{{experiencia.city}}</div>
@@ -67,7 +67,7 @@
             <h3>Experiencia Laboral:</h3>
             {% for experiencia in eLaboral %}
                 <p>
-                <div style="font-size: 12px; color:#231f20;">{{experiencia.start}} - {{experiencia.end}}</div>
+                <div style="font-size: 12px; color:#231f20;">{{experiencia.start | date:"F, Y"}} - {{experiencia.end | date:"F, Y"}}</div>
                 <div style="font-size: 22px; color: #7ca655;"><b><i>{{experiencia.title}}</i></b></div>
                 <div style="font-size:18px;"><b>{{experiencia.institute}}</b></div>
                 <div style="font-size: 12px; color:#231f20;">
