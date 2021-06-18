@@ -1,5 +1,5 @@
 from django.shortcuts import get_list_or_404, get_object_or_404, render
-from .models import Description, ExperiencieA, ExperiencieL
+from .models import Description, ExperiencieA, ExperiencieL, skills_idiomas
 
 # Create your views here.
 #===================================================================================
@@ -7,7 +7,29 @@ from .models import Description, ExperiencieA, ExperiencieL
 # FUNCION QUE RETORNA LA DE INFORMACION.
 
 def about(request):
+
+    flag_EA = False
+    flag_EL = False
+    flag_L = False
+
     description = Description.objects.first()
-    experiencia_academica = ExperiencieA.objects.all()
-    experiencia_laboral = ExperiencieL.objects.all()
-    return render(request, 'about/about.html', {'descripcion':description,'eAcademica':experiencia_academica, 'eLaboral':experiencia_laboral})
+    experienciaA = ExperiencieA.objects.all()
+    experienciaL = ExperiencieL.objects.all()
+    s_h = skills_idiomas.objects.all()
+    
+    if (experienciaA.count() != '0'):
+        flag_EA = True
+
+    if (experienciaL.count() != '0'):
+        flag_EL = True
+
+    if (s_h.count() != '0'):
+        flag_L = True
+
+    return render(request, 'about/about.html', {'descripcion':description,
+                           'eAcademica':experienciaA,
+                           'eLaboral':experienciaL,
+                           'EA_Any':flag_EA,
+                           'EL_Any':flag_EL,
+                           'Skill_Idiomas':s_h,
+                           'L_Any': flag_L,})

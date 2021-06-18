@@ -37,51 +37,138 @@
             <img style="border: 3px solid black"class="img-fluid avatar" src="{{descripcion.image.url}}" alt="{{descripcion.name}}">
         </div>
         <!--DESCRIPCION PERSONAL-->
-        
         <div class="col-lg-8 col-md-10 mx-auto" style="text-align:justify;">
             <h3 style= "text-align:center;">{{descripcion.name}}</h3>
             <br>
             {{descripcion.description | safe }}
         </div>
-
-        <!--EXPERIENCIA ACADEMICA-->
-        <div class="col-lg-8 col-md-10 mx-auto" style="text-align:justify;">
-            <hr>
-            <h3>Experiencia Academica:</h3>
-            {% for experiencia in eAcademica %}
-                <p>
-                <div style="font-size: 12px; color:#231f20;">{{experiencia.start | date:"F, Y"}} - {{experiencia.end | date:"F, Y"}}</div>
-                <div style="font-size: 22px; color: #7ca655;"><b><i>{{experiencia.title}}</i></b></div>
-                <div style="font-size:18px;"><b>{{experiencia.institute}}</b></div>
-                <div style="font-size: 12px; color:#231f20; text-align:justify;">{{experiencia.city}}</div>
-                {% if not forloop.last %}
-                __________________________________________________
-                {% endif %}
-                </p>
-            {% endfor %}
-        </div>
-        <!--EXPERIENCIA LABORAL-->
-        <div class="col-lg-8 col-md-10 mx-auto">
-            <hr>
-
-            <h3>Experiencia Laboral:</h3>
-            {% for experiencia in eLaboral %}
-                <p>
-                <div style="font-size: 12px; color:#231f20;">{{experiencia.start | date:"F, Y"}} - {{experiencia.end | date:"F, Y"}}</div>
-                <div style="font-size: 22px; color: #7ca655;"><b><i>{{experiencia.title}}</i></b></div>
-                <div style="font-size:18px;"><b>{{experiencia.institute}}</b></div>
-                <div style="font-size: 12px; color:#231f20;">
-                    {{experiencia.description}}
-                </div>
-                {% if not forloop.last %}
-                __________________________________________________
-                {% endif %}
-                </p>
-            {% endfor %}
-        </div>
     </div>
-</div>
 
+    <div class = "row" >
+        <!--EXPERIENCIA ACADEMICA-->
+        {% if EA_Any %}
+            <div class="col-lg-8 col-md-10 mx-auto" style="text-align:justify;">
+                <hr>
+                <h3>Experiencia Academica:</h3>
+                {% for experiencia in eAcademica %}
+                    <p>
+                    <div style="font-size: 12px; color:#231f20;">{{experiencia.start | date:"F, Y"}} - {{experiencia.end | date:"F, Y"}}</div>
+                    <div style="font-size: 22px; color: #7ca655;"><b><i>{{experiencia.title}}</i></b></div>
+                    <div style="font-size:18px;"><b>{{experiencia.institute}}</b></div>
+                    <div style="font-size: 12px; color:#231f20; text-align:justify;">{{experiencia.city}}</div>
+                    {% if not forloop.last %}
+                    __________________________________________________
+                    {% endif %}
+                    </p>
+                {% endfor %}
+            </div>
+        {% endif %} 
+        <!--EXPERIENCIA LABORAL-->
+        {% if EL_Any %}
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <hr>
+                <h3>Experiencia Laboral:</h3>
+                {% for experiencia in eLaboral %}
+                    <p>
+                    <div style="font-size: 12px; color:#231f20;">{{experiencia.start | date:"F, Y"}} - {{experiencia.end | date:"F, Y"}}</div>
+                    <div style="font-size: 22px; color: #7ca655;"><b><i>{{experiencia.title}}</i></b></div>
+                    <div style="font-size:18px;"><b>{{experiencia.employeer}}</b></div>
+                    <div style="font-size: 14px; color:#231f20;">
+                        {{experiencia.description | safe }}
+                    </div>
+                    {% if not forloop.last %}
+                    __________________________________________________
+                    {% endif %}
+                    </p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <!--HABILIDADES TECNICAS-->
+        <!--LENGUAJES-->
+        {% if L_Any %}
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <hr>
+                <h3>Lenguajes de Programación:</h3>
+                <table>
+                    <tr>
+                        <th width = "350">Lenguaje</th>
+                        <th>Nivel de conocimiento</th>
+                    </tr>
+                    <br>
+                    {% for x in Skill_Idiomas %}
+                        {% if x.category == 'lenguajes'%}
+                            <tr>
+                                <td><p style="font-size: 12px;">{{x.name}}</p></td>
+                                <td>{% if x.knowledge_level == 1 %}
+                                    <p> - Basico (competente)</p>
+                                    {% elif x.knowledge_level == 2 %}
+                                    <p> - Intermedio</p>
+                                    {% elif x.knowledge_level == 3 %}
+                                    <p> - Avanzado</p>
+                                    {% endif%}
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </table>
+                <br>
+                <p>__________________________________________________<p>
+                <br>
+                <h3>Frameworks / Marcos de Trabajo:</h3>
+                <table>
+                    <tr>
+                        <th width = "350">Framework</th>
+                        <th>Nivel de conocimiento</th>
+                    </tr>
+                    <br>
+                    {% for x in Skill_Idiomas %}
+                        {% if x.category == 'frameworks'%}
+                            <tr>
+                                <td><p style="font-size: 12px;">{{x.name}}</p></td>
+                                <td>{% if x.knowledge_level == 1 %}
+                                    <p> - Basico (competente)</p>
+                                    {% elif x.knowledge_level == 2 %}
+                                    <p> - Intermedio</p>
+                                    {% elif x.knowledge_level == 3 %}
+                                    <p> - Avanzado</p>
+                                    {% endif%}
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </table>
+                <br>
+                <p>__________________________________________________<p>
+                <br>
+                <h3>Bases de Datos</h3>
+                <table>
+                    <tr style="text-align:center;">
+                        <th width = "350">DBs</th>
+                        <th width = "350">Nivel de conocimiento</th>
+                    </tr>
+                    <br>
+                    {% for x in Skill_Idiomas %}
+                        {% if x.category == 'db'%}
+                            <tr>
+                                <td><p>{{x.name}}</p></td>
+                                <td>{% if x.knowledge_level == 1 %}
+                                    <p> - Basico (competente)</p>
+                                    {% elif x.knowledge_level == 2 %}
+                                    <p> - Intermedio</p>
+                                    {% elif x.knowledge_level == 3 %}
+                                    <p> - Avanzado</p>
+                                    {% endif%}
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </table>
+            </div>
+        {% endif %}
+    </div>
+
+</div>
 {% endblock %}
 
 </html>
