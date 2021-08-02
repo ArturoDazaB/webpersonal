@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Description, ExperiencieA, ExperiencieL, skills_idiomas, intereses_aptitudes
+from .models import Description, ExperiencieA, ExperiencieL, skills_idiomas, intereses_hobbies, intereses_hobbies_images
 # Register your models here.
 #============================================================
 class DescriptionAdmin(admin.ModelAdmin):
@@ -29,8 +29,15 @@ class skills_idiomasAdmin(admin.ModelAdmin):
 admin.site.register(skills_idiomas, skills_idiomasAdmin)
 
 #============================================================
-class intereses_aptitudesAdmin(admin.ModelAdmin):
+class intereses_hobbiesAdmin(admin.ModelAdmin):
     readonly_fields = ('created', 'updated')
     list_display = ('name', 'category')  
 
-admin.site.register(intereses_aptitudes, intereses_aptitudesAdmin)
+admin.site.register(intereses_hobbies, intereses_hobbiesAdmin)
+
+#============================================================
+class intereses_hobbies_imagesAdmin(admin.ModelAdmin):
+    readonly_fields = ('created', 'updated')
+    list_display = ('name', 'i_h')
+
+admin.site.register(intereses_hobbies_images, intereses_hobbies_imagesAdmin)
