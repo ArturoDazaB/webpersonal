@@ -16,8 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
+from django.urls.conf import include
 from core import views as core_views
-from portfolio import views as portfolio_view
+from portfolio.urls import portfolio_url
 from about import views as about_view
 
 from django.conf import settings
@@ -26,7 +27,7 @@ urlpatterns = [
     path('', core_views.home, name='home'),
     path('about-me/', about_view.about, name='about'),
     path('contact/', core_views.contact, name = 'contact'),
-    path('portfolio/', portfolio_view.portfolio, name='portfolio'),
+    path('portfolio/', include(portfolio_url)),
     path('admin/', admin.site.urls),
 ]
 
