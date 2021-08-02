@@ -14,8 +14,4 @@ class PortfolioListView(ListView):
     model = Project
 
 class PortfolioDetailView(DetailView):
-    models = Project
-
-#def portfolio(request):
-#    projects = Project.objects.all()
-#    return render(request, 'portfolio/portfolio.html', {'projects':projects})
+    model = Project

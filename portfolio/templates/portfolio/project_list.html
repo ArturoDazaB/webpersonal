@@ -43,8 +43,8 @@
 	      		<h2 class="section-heading title">{{project.title}}</h2>   
 	          	<p>{{project.short_description | linebreaksbr}} . . .</p>
 
-				{% if project.link %}
-	          		<p><a href="{{project.link}}" target="_blank">Más información</a></p>
+				{% if project.detail_description %}
+	          		<p><a href="{% url 'portfolio:project' project.id project.title|slugify %}">Más información</a></p>
 				{% endif %}
 	      	</div>
 		</div>

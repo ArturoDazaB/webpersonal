@@ -33,8 +33,8 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-3 col-md-4 offset-lg-1">
-            <img style="border: 3px solid black"class="img-fluid avatar" src="{{descripcion.image.url}}" alt="{{descripcion.name}}">
+        <div class="col-lg-3 col-md-4">
+            <img style="border: 3px solid black" class="img-fluid avatar" src="{{descripcion.image.url}}" alt="{{descripcion.name}}">
         </div>
         <!--DESCRIPCION PERSONAL-->
         <div class="col-lg-8 col-md-10 mx-auto" style="text-align:justify;">
@@ -223,6 +223,21 @@
                         <div style="font-size: {{HeaderFontSize}}; 
                                           color: #7ca655;"><b><i>{{x.name}}</i></b></div>
                         <div style = "font-size: {{LabelFontSize}}"><p>{{x.description | safe}}</p></div>
+
+                        {% for y in Hobbies_Intereses_Images %}
+                            {% if y.i_h == x %}
+                                <br />
+                                <div align="center">
+                                    <img style="border: 2px solid black" 
+                                     class="img-fluid" 
+                                     src="{{y.image.url}}" 
+                                     alt="{{y.name}}"
+                                     height = "600"
+                                     width = "600">
+                                </div>
+                                <br />
+                            {% endif %}
+                        {% endfor %}
                         {% if not forloop.last %}
                             <p>__________________________________________________</p>
                         {% endif %}

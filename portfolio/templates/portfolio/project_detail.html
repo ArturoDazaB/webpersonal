@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+
+{% extends 'core/base.html' %}
+
+<!--==============================================================================-->
+<!--==============================================================================-->
+<!--TITULO DE LA PAGINA-->
+{% block title %} Portafolio {% endblock %}
+
+<!--==============================================================================-->
+<!--==============================================================================-->
+<!--IMAGEN DE FONDO : CABECERA-->
+{% block background %}{% load static%}{% static 'core/img/portfolio-bg.jpg' %}{% endblock%}
+
+<!--==============================================================================-->
+<!--==============================================================================-->
+<!--CABECERA-->
+{% block headers %}
+<h1>Portafolio</h1>
+{% endblock %}
+
+<!--==============================================================================-->
+<!--==============================================================================-->
+<!--CONTENIDO-->
+<!--EL CONTENIDO INDIVIDUAL DE CADA UNA DE LAS PAGINAS DEBE ENCONTRARSE ANIDADO 
+	DENTRO DEL TEMPLATE TAG "block". ESTO PARA QUE TOME EL CONTENIDO HTML DEL 
+	DOCUMENTO DEFINIDO EN EL BLOQUE "extends" E INTERSTE EL "contenido" DENTRO DEL
+	TAG "block" DEFINIDO EN EL DOCUMENTO "core/base.html".-->
+{% block content %}
+
+	<div class="container">
+    <div class="row mt-3">
+      <div class="col-md-9 mx-auto">
+        <h2 class="section-heading mb-4" style="text-align:center;">{{project.title}}</h2>
+		<div class="row project">
+	    	<div class="col-lg-3 col-md-4 offset-lg-1">
+				<img style="border: 3px solid black" class="img-fluid" src="{{project.image.url}}" alt="" 
+				width="200" 
+     			height="200">
+			</div>
+	        <div class="col-lg-7 col-md-8">
+	          	<p>{{project.detail_description | linebreaksbr }} </p>
+	      	</div>
+		</div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+
+
+</html>

@@ -10,7 +10,7 @@ def about(request):
 
     # CONSTANTE QUE DEFINE EL TAMAÑO DE LA FUENTE SELECCIONADA PARA PARRAFOS
     header_font_size = '22px'
-    label_font_size = '15px'
+    label_font_size = '17px'
 
     # CONSTANTE QUE DEFINE EL TAMAÑO DE LA FUENTE SELECCIONADA PARA FECHAS Y UBICACIONES 
     # (ESPECIFICAMENTE FECHAS Y UBICACIONES DE EXPERIENCIAS ACADEMICAS Y LABORALES)
@@ -36,7 +36,7 @@ def about(request):
     experienciaL = ExperiencieL.objects.all()
     s_i = skills_idiomas.objects.all()
     h_i = intereses_hobbies.objects.all().order_by('created')
-    h_i_images = intereses_hobbies_images.objects.all().order_by('id')
+    h_i_images = intereses_hobbies_images.objects.all()
 
     
     # VERIFICIAMOS QUE LOS OBJETOS ENCARARGADOS DE CONTENER LOS REGISTROS DE LA BASE DE DATOS
@@ -50,7 +50,7 @@ def about(request):
     if (s_i.count() != '0'):
         flag_L = True
 
-    if (h_i.count() != 0):
+    if (h_i.count() != '0'):
         flag_HI = True
 
     #RETORNAMOS LA INFORMACION CON EL NOMBRE DE LOS DICCIONARIOS A MANEJAR DENTRO DEL DOCUMENTO
