@@ -37,22 +37,19 @@
 		<div class="row project" >
 	    	<div class="col-lg-3 col-md-4 offset-lg-1" align="center">
 				<img style="border: 3px solid black" class="img-fluid" src="{{project.image.url}}" alt="{{project.title}}" width="200" height="200">
-				<br />
 			</div>
 	        <div class="col-lg-7 col-md-8">
 	          	<p>{{project.detail_description | linebreaksbr }} </p>
 	      	</div>  
 			<div class="col-lg-10 col-md-4 offset-lg-1">
-				<h3 class="section-heading mb-4" style="text-align:center;">Imagenes - Capturas</h3>
+				<h4 class="section-heading mb-4" style="text-align:center;">Imagenes - Capturas</h4>
 				<div id="CarouselImage" class="carousel slide" data-bs-ride="carousel">
 					<div class="carousel-inner">
 						{% for x in project_images %}
 							{% if x.default %}
-								{% with x.groupactivity_set.all|first as y %}
-									<div class="carousel-item {% if forloop.counter0 == 0 %}active{% endif %}" align="center">
-										<img src="{{x.image.url}}" class="img-fluid" alt="{{x.name}}" height = "250" width = "250" style="border: 2px solid black" >
-									</div>
-								{% endwith %}
+								<div class="carousel-item {% if forloop.counter0 == 0 %}active{% endif %}" align="center">
+                                    <img src="{{x.image.url}}" class="img-fluid" alt="{{x.name}}" height = "250" width = "250" style="border: 2px solid black" >
+                                </div>
 							{% endif %}
 						{% endfor %}
 					</div>

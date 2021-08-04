@@ -59,7 +59,7 @@
                     <div style="font-size:18px;"><b>{{experiencia.institute}}</b></div>
                     <div style="font-size: {{ExpFontSize}}; color:#231f20; text-align:justify;">{{experiencia.city}}</div>
                     {% if not forloop.last %}
-                    __________________________________________________
+                    ___________________________________________________________
                     {% endif %}
                     </p>
                 {% endfor %}
@@ -80,7 +80,7 @@
                         {{experiencia.description | safe }}
                     </div>
                     {% if not forloop.last %}
-                    __________________________________________________
+                    ___________________________________________________________
                     {% endif %}
                     </p>
                 {% endfor %}
@@ -90,7 +90,7 @@
         <!--HABILIDADES TECNICAS-->
         <!--LENGUAJES-->
         {% if L_Any %}
-            <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="col-lg-8 col-md-10 mx-auto" align = "center">
                 <hr>
                 <h2 style= "text-align:center">Habilidades Técnicas</h2>
                 <br />
@@ -104,8 +104,7 @@
                     {% for x in Skill_Idiomas %}
                         {% if x.category == 'lenguajes'%}
                             <tr>
-                                <td><p style="font-size: 18px; 
-                                              color: #7ca655;"><b><i>{{x.name}}</i></b></p></td>
+                                <td><p style="font-size: 18px; color: #7ca655;"><b><i>{{x.name}}</i></b></p></td>
                                 <td><p>{% if x.knowledge_level == 1 %}
                                     - Básico
                                     {% elif x.knowledge_level == 2 %}
@@ -119,7 +118,7 @@
                     {% endfor %}
                 </table>
                 <br>
-                <p>__________________________________________________<p>
+                <p>___________________________________________________________<p>
                 <br>
                 <h3>Frameworks / Marcos de Trabajo:</h3>
                 <table>
@@ -131,9 +130,7 @@
                     {% for x in Skill_Idiomas %}
                         {% if x.category == 'frameworks'%}
                             <tr>
-                                <td><p style="font-size: 18px; 
-                                              color: #7ca655;"
-                                       ><b><i>{{x.name}}</i><b></p></td>
+                                <td><p style="font-size: 18px; color: #7ca655;"><b><i>{{x.name}}</i><b></p></td>
                                 <td><p>{% if x.knowledge_level == 1 %}
                                     - Básico
                                     {% elif x.knowledge_level == 2 %}
@@ -148,21 +145,19 @@
                     {% endfor %}
                 </table>
                 <br>
-                <p>__________________________________________________<p>
+                <p>___________________________________________________________<p>
                 <br>
                 <h3>Bases de Datos</h3>
                 <table>
                     <tr>
                         <th width = "350">DBs</th>
-                        <th width = "350">Nivel de conocimiento</th>
+                        <th>Nivel de conocimiento</th>
                     </tr>
                     <br>
                     {% for x in Skill_Idiomas %}
                         {% if x.category == 'db'%}
                             <tr>
-                                <td><p style="font-size: 18px; 
-                                              color: #7ca655;"
-                                       ><b><i>{{x.name}}</i><b></p></td>
+                                <td><p style="font-size: 18px; color: #7ca655;"><b><i>{{x.name}}</i><b></p></td>
                                 <td>{% if x.knowledge_level == 1 %}
                                     <p> - Básico</p>
                                     {% elif x.knowledge_level == 2 %}
@@ -180,11 +175,9 @@
 
         <!--IDIOMAS-->
         {% if L_Any %}
-            <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="col-lg-8 col-md-10 mx-auto" align = "center">
                 <hr>
                 <h2 style= "text-align:center">Idiomas y Lenguajes</h2>
-                <br />
-                <h3>Idiomas:</h3>
                 <table>
                     <tr>
                         <th width = "350">Lenguaje</th>
@@ -220,28 +213,34 @@
                 <br />
                 <div>
                     {% for x in Hobbies_Intereses %}
-                        <div style="font-size: {{HeaderFontSize}}; 
-                                          color: #7ca655;"><b><i>{{x.name}}</i></b></div>
+                        <div style="font-size: {{HeaderFontSize}}; color: #7ca655;"><b><i>{{x.name}}</i></b></div>
                         <div style = "font-size: {{LabelFontSize}}"><p>{{x.description | safe}}</p></div>
-
-                        {% for y in Hobbies_Intereses_Images %}
-                            {% if y.i_h == x %}
-                                <br />
-                                <div align="center">
-                                    <img style="border: 2px solid black" 
-                                     class="img-fluid" 
-                                     src="{{y.image.url}}" 
-                                     alt="{{y.name}}"
-                                     height = "600"
-                                     width = "600">
-                                </div>
-                                <br />
-                            {% endif %}
-                        {% endfor %}
-                        {% if not forloop.last %}
-                            <p>__________________________________________________</p>
-                        {% endif %}
+                        <p>___________________________________________________________</p>
                     {% endfor %}
+                    <br />
+                    <h4 align="center">Imagenes</h4>
+                    <br />
+                    <div class="col-lg-10 col-md-4 offset-lg-1">
+                            <div id="CarouselImage" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    {% for y in Hobbies_Intereses_Images %}
+                                        {% if y.default %}
+                                            <div class="carousel-item {% if forloop.counter0 == 0 %}active{% endif %}" align="center">
+                                                <img src="{{y.image.url}}" class="img-fluid" alt="{{y.name}}" style="border: 2px solid black" width = "100%" height = "100%">
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev" >
+                                    <span class="carousel-control-prev-icon" aria-hidden="true" ></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next" >
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+
                 </div>
             </div>
         {% endif %}
