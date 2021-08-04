@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Project
+from .models import Project, ProjectImages
 
 # Register your models here.
 class ProjectAdmin(admin.ModelAdmin):
@@ -7,3 +7,8 @@ class ProjectAdmin(admin.ModelAdmin):
 
 admin.site.register(Project, ProjectAdmin)
 
+class ProjectImagesAdmin(admin.ModelAdmin):
+    readonly_fields = ('created', 'updated')
+    list_display = ('name', 'project', 'default')
+
+admin.site.register(ProjectImages, ProjectImagesAdmin)

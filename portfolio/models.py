@@ -17,6 +17,21 @@ class Project (models.Model):
         verbose_name_plural = 'proyectos'
         ordering = ['-created']
 
-
     def __str__(self):
         return self.title
+
+class ProjectImages(models.Model):
+    name = models.CharField(verbose_name = 'Nombre', max_length=255)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, verbose_name='Projecto')
+    image = models.ImageField(upload_to = 'project')
+    default = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de Creación')
+    updated = models.DateTimeField(auto_now=True, verbose_name='Fecha de actualización')
+
+    class Meta:
+        verbose_name = 'Imagen de proyecto'
+        verbose_name_plural = 'Imagenes de proyectos'
+        ordering = ['created']
+
+    def __str__(self):
+        return self.name
