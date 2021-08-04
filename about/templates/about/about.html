@@ -35,11 +35,13 @@
     <div class="row">
         <div class="col-lg-3 col-md-4">
             <img style="border: 3px solid black" class="img-fluid avatar" src="{{descripcion.image.url}}" alt="{{descripcion.name}}">
+            <br />
         </div>
         <!--DESCRIPCION PERSONAL-->
         <div class="col-lg-8 col-md-10 mx-auto" style="text-align:justify;">
+            <br />
             <h2 style= "text-align:center;">{{descripcion.name}}</h2>
-            <br>
+            <br />
             <div style = "font-size: {{LabelFontSize}};">{{descripcion.description | safe }}</div>
         </div>
     </div>
@@ -59,7 +61,7 @@
                     <div style="font-size:18px;"><b>{{experiencia.institute}}</b></div>
                     <div style="font-size: {{ExpFontSize}}; color:#231f20; text-align:justify;">{{experiencia.city}}</div>
                     {% if not forloop.last %}
-                    ___________________________________________________________
+                    <br />
                     {% endif %}
                     </p>
                 {% endfor %}
@@ -80,7 +82,7 @@
                         {{experiencia.description | safe }}
                     </div>
                     {% if not forloop.last %}
-                    ___________________________________________________________
+                    <br />
                     {% endif %}
                     </p>
                 {% endfor %}
@@ -118,7 +120,6 @@
                     {% endfor %}
                 </table>
                 <br>
-                <p>___________________________________________________________<p>
                 <br>
                 <h3>Frameworks / Marcos de Trabajo:</h3>
                 <table>
@@ -145,7 +146,6 @@
                     {% endfor %}
                 </table>
                 <br>
-                <p>___________________________________________________________<p>
                 <br>
                 <h3>Bases de Datos</h3>
                 <table>
@@ -215,7 +215,7 @@
                     {% for x in Hobbies_Intereses %}
                         <div style="font-size: {{HeaderFontSize}}; color: #7ca655;"><b><i>{{x.name}}</i></b></div>
                         <div style = "font-size: {{LabelFontSize}}"><p>{{x.description | safe}}</p></div>
-                        <p>___________________________________________________________</p>
+                        <br />
                     {% endfor %}
                     <br />
                     <h4 align="center">Imagenes</h4>

@@ -34,15 +34,12 @@
 	<div class="container">
 		{% for project in object_list %}
 	    <div class="row project">
-	    	<div class="col-lg-3 col-md-4 offset-lg-1">
-				<img style="border: 3px solid black" class="img-fluid" src="{{project.image.url}}" alt="" 
-				width="200" 
-     			height="200">
+	    	<div class="col-lg-3 col-md-4 offset-lg-1" align = "center">
+				<img style="border: 3px solid black" class="img-fluid" src="{{project.image.url}}" alt="{{project.title}}" width="200" height="200">
 			</div>
 	        <div class="col-lg-7 col-md-8">
-	      		<h2 class="section-heading title">{{project.title}}</h2>   
+	      		<h2 class="section-heading title" align = "center">{{project.title}}</h2>
 	          	<p>{{project.short_description | linebreaksbr}} . . .</p>
-
 				{% if project.detail_description %}
 	          		<p><a href="{% url 'portfolio:project' project.id project.title|slugify %}">Más información</a></p>
 				{% endif %}
